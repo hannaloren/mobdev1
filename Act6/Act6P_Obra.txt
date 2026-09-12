@@ -1,0 +1,35 @@
+void main() {
+  //1
+  for (int i = 5; i >= 1; i--) {
+    print("Game starting in: $i");
+  }
+  print("GO!");
+
+  //2
+  int totalCoins = 0;
+
+  while (totalCoins < 50) {
+    totalCoins += 10;
+    print("Total coins: $totalCoins");
+  }
+
+  //3
+  int prizeDraw = 0;
+
+  do {
+    prizeDraw++;
+    print("Prize draw executed!");
+  } while (prizeDraw < 1);
+
+  // 4
+  List<String> prizes = ['Plush Toy', 'Keychain', 'Headphones', 'Gift Card'];
+
+  for (String item in prizes) {
+    print("Available Prize: $item");
+  }
+
+  // 5
+  List<int> scores = [1200, 4500, 3100, 8900];
+
+  scores.forEach((score) => print("High Score: $score points"));
+}
