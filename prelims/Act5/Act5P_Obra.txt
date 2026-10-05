@@ -1,0 +1,16 @@
+void main(){
+    int number  = 555;
+    switch (number){
+        case 67:
+        print("Six Seven");
+        break;
+
+        case 555: 
+        print("ha ha ha");
+        break;
+
+        default:
+        print("Skibidi");
+    }
+
+}
