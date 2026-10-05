@@ -7,492 +7,534 @@ void main() {
 class StudentProfileApp extends StatelessWidget {
   const StudentProfileApp({super.key});
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: const Color(0xFF0B0B0B),
-  
-    body: SafeArea(
-      child: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Student Profile',
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Arial',
+      ),
+      home: const StudentProfileScreen(),
+    );
+  }
+}
 
-            child: Container(
-              width: 430,
+class StudentProfileScreen extends StatelessWidget {
+  const StudentProfileScreen({super.key});
 
-              decoration: BoxDecoration(
-                color: const Color(0xFF111111),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF0B0B0B),
 
-                borderRadius: BorderRadius.circular(18),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
 
-                border: Border.all(
-                  color: const Color(0xFFD4AF37),
-                  width: 1,
+              child: Container(
+                width: 430,
+
+                decoration: BoxDecoration(
+                  color: const Color(0xFF111111),
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: const Color(0xFFD4AF37),
+                    width: 1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      blurRadius: 30,
+                      offset: const Offset(0, 15),
+                    ),
+                  ],
                 ),
 
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 30,
-                    offset: const Offset(0, 15),
-                  ),
-                ],
-              ),
-            
-              child: Padding(
-                padding: const EdgeInsets.all(28),
+                child: Padding(
+                  padding: const EdgeInsets.all(28),
 
-                child: Column(
-                  // IMPORTANT:
-                  // Makes the box grow according to its contents
-                  mainAxisSize: MainAxisSize.min,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
 
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                    crossAxisAlignment:
+                        CrossAxisAlignment.start,
 
-                  children: [
+                    children: [
 
-                    // =========================================
-                    // HEADER
-                    // =========================================
+                      // =========================================
+                      // HEADER
+                      // =========================================
 
-                    Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                      Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
 
-                      crossAxisAlignment:
-                          CrossAxisAlignment.center,
+                        crossAxisAlignment:
+                            CrossAxisAlignment.center,
 
-                      children: [
-
-                        const Text(
-                          'H.',
-                          style: TextStyle(
-                            color: Color(0xFFD4AF37),
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                          ),
-                        ),
-
-                        Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.end,
-
-                          children: const [
-
-                            Text(
-                              'STUDENT PROFILE',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 2,
-                              ),
-                            ),
-
-                            SizedBox(height: 4),
-
-                            Text(
-                              'LORMA COLLEGES',
-                              style: TextStyle(
-                                color: Color(0xFFD4AF37),
-                                fontSize: 8,
-                                letterSpacing: 1.5,
-                              ),
-                            ),
-                            
-                          ],
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 18),
-
-                    // GOLD DIVIDER
-
-                    Container(
-                      width: double.infinity,
-                      height: 1,
-                      color: const Color(0xFFD4AF37),
-                    ),
-
-                    const SizedBox(height: 28),
-
-                    // =========================================
-                    // PROFILE HEADER
-                    // =========================================
-
-                    Row(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.center,
-
-                      children: [
-
-                        // PHOTO
-
-                        Stack(
-                          alignment: Alignment.bottomRight,
-
-                          children: [
-
-                            Container(
-                              width: 105,
-                              height: 105,
-
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(12),
-
-                                border: Border.all(
-                                  color:
-                                      const Color(0xFFD4AF37),
-                                  width: 2,
-                                ),
-                              ),
-
-                              padding:
-                                  const EdgeInsets.all(3),
-
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.circular(9),
-
-                                child: Image.asset(
-                                  'assets/profile.jpg',
-                                  fit: BoxFit.cover,
-
-                                  errorBuilder:
-                                      (
-                                        context,
-                                        error,
-                                        stackTrace,
-                                      ) {
-                                    return const Icon(
-                                      Icons.person_outline,
-                                      color:
-                                          Color(0xFFD4AF37),
-                                      size: 50,
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-
-                            // VERIFIED ICON
-
-                            Container(
-                              width: 28,
-                              height: 28,
-
-                              decoration: BoxDecoration(
-                                color:
-                                    const Color(0xFFD4AF37),
-
-                                borderRadius:
-                                    BorderRadius.circular(7),
-
-                                border: Border.all(
-                                  color:
-                                      const Color(0xFF111111),
-                                  width: 2,
-                                ),
-                              ),
-
-                              child: const Icon(
-                                Icons.verified_outlined,
-                                color: Colors.black,
-                                size: 15,
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(width: 20),
-
-                        // NAME + COURSE
-
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
-
-                            children: [
-
-                              const Text(
-                                'HANNA LOREN OBRA',
-
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 21,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 0.7,
-                                ),
-                              ),
-
-                              const SizedBox(height: 8),
-
-                              Container(
-                                width: 40,
-                                height: 2,
-                                color:
-                                    const Color(0xFFD4AF37),
-                              ),
-
-                              const SizedBox(height: 9),
-
-                              const Text(
-                                'BS COMPUTER SCIENCE',
-
-                                style: TextStyle(
-                                  color:
-                                      Color(0xFFD4AF37),
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1.5,
-                                ),
-                              ),
-
-                              const SizedBox(height: 5),
-
-                              const Text(
-                                'Computer Science Student',
-
-                                style: TextStyle(
-                                  color: Colors.white54,
-                                  fontSize: 11,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 30),
-
-                    
-
-                    // =========================================
-                    // STUDENT INFORMATION
-                    // =========================================
-
-                    const Text(
-                      'STUDENT INFORMATION',
-                      style: TextStyle(
-                        color: Color(0xFFD4AF37),
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(10),
-
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF181818),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: Colors.white12,
-                        ),
-                      ),
-
-                      child: Column(
                         children: [
 
-                          Row(
-                            children: [
-
-                              Expanded(
-                                child: ProfileInfo(
-                                  icon: Icons.badge_outlined,
-                                  label: 'STUDENT ID',
-                                  value: '2510739',
-                                ),
-                              ),
-
-                              Expanded(
-                                child: ProfileInfo(
-                                  icon: Icons.school_outlined,
-                                  label: 'YEAR LEVEL',
-                                  value: '2nd Year',
-                                ),
-                              ),
-                            ],
+                          const Text(
+                            'H.',
+                            style: TextStyle(
+                              color: Color(0xFFD4AF37),
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
                           ),
 
-                          const SizedBox(height: 18),
+                          Column(
+                            crossAxisAlignment:
+                                CrossAxisAlignment.end,
 
-                          Container(
-                            height: 1,
-                            color: Colors.white10,
-                          ),
+                            children: const [
 
-                          const SizedBox(height: 18),
-
-                          Row(
-                            children: [
-
-                              Expanded(
-                                child: ProfileInfo(
-                                  icon: Icons.email_outlined,
-                                  label: 'EMAIL',
-                                  value:
-                                      'hannaloren.obra@lorma.edu',
+                              Text(
+                                'STUDENT PROFILE',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 2,
                                 ),
                               ),
 
-                              Expanded(
-                                child: ProfileInfo(
-                                  icon: Icons.account_balance_outlined,
-                                  label: 'PROGRAM',
-                                  value: 'BSCS',
+                              SizedBox(height: 4),
+
+                              Text(
+                                'LORMA COLLEGES',
+                                style: TextStyle(
+                                  color: Color(0xFFD4AF37),
+                                  fontSize: 8,
+                                  letterSpacing: 1.5,
                                 ),
                               ),
                             ],
                           ),
                         ],
                       ),
-                    ),
 
-                    const SizedBox(height: 28),
+                      const SizedBox(height: 18),
 
-// =========================================
-// EDUCATIONAL HISTORY
-// =========================================
+                      // GOLD DIVIDER
 
-const Text(
-  'HISTORY',
-  style: TextStyle(
-    color: Color(0xFFD4AF37),
-    fontSize: 10,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 2,
-  ),
-),
-
-const SizedBox(height: 12),
-
-Container(
-  width: double.infinity,
-
-  // MORE SPACE INSIDE THE BOX
-  padding: const EdgeInsets.fromLTRB(
-    14,
-    16,
-    14,
-    10,
-  ),
-
-  decoration: BoxDecoration(
-    color: const Color(0xFF181818),
-    borderRadius: BorderRadius.circular(12),
-    border: Border.all(
-      color: Colors.white12,
-    ),
-  ),
-
-  child: Column(
-    children: [
-
-      EducationHistoryItem(
-        year: '2025 - PRESENT',
-        school: 'LORMA COLLEGES',
-        course: 'BS Computer Science',
-        icon: Icons.school_outlined,
-        isFirst: true,
-      ),
-
-      EducationHistoryItem(
-        year: '2023 - 2025',
-        school: 'DMMMSU NLUC - Laboratory High School',
-        course: 'STEM Strand',
-        icon: Icons.menu_book_outlined,
-      ),
-
-      EducationHistoryItem(
-        year: '2019 - 2023',
-        school: 'Bacnotan NHS',
-        course: 'Special Science Class',
-        icon: Icons.auto_stories_outlined,
-      ),
-
-      EducationHistoryItem(
-        year: '2013 - 2019',
-        school: 'Bacnotan Elementary School',
-        course: 'Elementary Education',
-        icon: Icons.child_care_outlined,
-        isLast: true,
-      ),
-    ],
-  ),
-),
-
-const SizedBox(height: 28),
-
-                    // =========================================
-                    // EDIT PROFILE BUTTON
-                    // =========================================
-
-                    SizedBox(
-                      width: double.infinity,
-                      height: 48,
-
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-
-                        icon: const Icon(
-                          Icons.edit_outlined,
-                          size: 17,
-                        ),
-
-                        label: const Text(
-                          'EDIT PROFILE',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5,
-                          ),
-                        ),
-
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color(0xFFD4AF37),
-
-                          foregroundColor: Colors.black,
-
-                          elevation: 0,
-
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(9),
-                          ),
-                        ),
+                      Container(
+                        width: double.infinity,
+                        height: 1,
+                        color: const Color(0xFFD4AF37),
                       ),
-                    ),
 
-                    const SizedBox(height: 18),
+                      const SizedBox(height: 28),
 
-                    // =========================================
-                    // FOOTER
-                    // =========================================
+                      // =========================================
+                      // PROFILE HEADER
+                      // =========================================
 
-                    Center(
-                      child: Text(
-                        'LORMA COLLEGES • COMPUTER SCIENCE',
+                      Row(
+                        crossAxisAlignment:
+                            CrossAxisAlignment.center,
+
+                        children: [
+
+                          // PHOTO
+
+                          Stack(
+                            alignment:
+                                Alignment.bottomRight,
+
+                            children: [
+
+                              Container(
+                                width: 105,
+                                height: 105,
+
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.circular(12),
+
+                                  border: Border.all(
+                                    color:
+                                        const Color(0xFFD4AF37),
+                                    width: 2,
+                                  ),
+                                ),
+
+                                padding:
+                                    const EdgeInsets.all(3),
+
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.circular(9),
+
+                                  child: Image.asset(
+                                    'assets/profile.jpg',
+                                    fit: BoxFit.cover,
+
+                                    errorBuilder:
+                                        (
+                                          context,
+                                          error,
+                                          stackTrace,
+                                        ) {
+                                      return const Icon(
+                                        Icons.person_outline,
+                                        color:
+                                            Color(0xFFD4AF37),
+                                        size: 50,
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+
+                              // VERIFIED ICON
+
+                              Container(
+                                width: 28,
+                                height: 28,
+
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFFD4AF37),
+
+                                  borderRadius:
+                                      BorderRadius.circular(7),
+
+                                  border: Border.all(
+                                    color:
+                                        const Color(0xFF111111),
+                                    width: 2,
+                                  ),
+                                ),
+
+                                child: const Icon(
+                                  Icons.verified_outlined,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(width: 20),
+
+                          // NAME + COURSE
+
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+
+                              children: [
+
+                                const Text(
+                                  'HANNA LOREN OBRA',
+
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 0.7,
+                                  ),
+                                ),
+
+                                const SizedBox(height: 8),
+
+                                Container(
+                                  width: 40,
+                                  height: 2,
+                                  color:
+                                      const Color(0xFFD4AF37),
+                                ),
+
+                                const SizedBox(height: 9),
+
+                                const Text(
+                                  'BS COMPUTER SCIENCE',
+
+                                  style: TextStyle(
+                                    color:
+                                        Color(0xFFD4AF37),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.5,
+                                  ),
+                                ),
+
+                                const SizedBox(height: 5),
+
+                                const Text(
+                                  'Computer Science Student',
+
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontSize: 11,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 30),
+
+                      // =========================================
+                      // STUDENT INFORMATION
+                      // =========================================
+
+                      const Text(
+                        'STUDENT INFORMATION',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.3),
-                          fontSize: 8,
-                          letterSpacing: 1.3,
+                          color: Color(0xFFD4AF37),
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
                         ),
                       ),
-                    ),
-                  ],
+
+                      const SizedBox(height: 12),
+
+                      Container(
+                        width: double.infinity,
+
+                        padding: const EdgeInsets.all(10),
+
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF181818),
+                          borderRadius:
+                              BorderRadius.circular(12),
+
+                          border: Border.all(
+                            color: Colors.white12,
+                          ),
+                        ),
+
+                        child: Column(
+                          children: [
+
+                            Row(
+                              children: [
+
+                                Expanded(
+                                  child: ProfileInfo(
+                                    icon:
+                                        Icons.badge_outlined,
+                                    label: 'STUDENT ID',
+                                    value: '2510739',
+                                  ),
+                                ),
+
+                                Expanded(
+                                  child: ProfileInfo(
+                                    icon:
+                                        Icons.school_outlined,
+                                    label: 'YEAR LEVEL',
+                                    value: '2nd Year',
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 18),
+
+                            Container(
+                              height: 1,
+                              color: Colors.white10,
+                            ),
+
+                            const SizedBox(height: 18),
+
+                            Row(
+                              children: [
+
+                                Expanded(
+                                  child: ProfileInfo(
+                                    icon:
+                                        Icons.email_outlined,
+                                    label: 'EMAIL',
+                                    value:
+                                        'hannaloren.obra@lorma.edu',
+                                  ),
+                                ),
+
+                                Expanded(
+                                  child: ProfileInfo(
+                                    icon: Icons
+                                        .account_balance_outlined,
+                                    label: 'PROGRAM',
+                                    value: 'BSCS',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // =========================================
+                      // EDUCATIONAL HISTORY
+                      // =========================================
+
+                      const Text(
+                        'HISTORY',
+                        style: TextStyle(
+                          color: Color(0xFFD4AF37),
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      Container(
+                        width: double.infinity,
+
+                        padding: const EdgeInsets.fromLTRB(
+                          14,
+                          16,
+                          14,
+                          10,
+                        ),
+
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF181818),
+                          borderRadius:
+                              BorderRadius.circular(12),
+
+                          border: Border.all(
+                            color: Colors.white12,
+                          ),
+                        ),
+
+                        child: Column(
+                          children: [
+
+                            // COLLEGE
+
+                            EducationHistoryItem(
+                              year: '2025 - PRESENT',
+                              school: 'LORMA COLLEGES',
+                              course:
+                                  'BS Computer Science',
+                              icon:
+                                  Icons.school_outlined,
+                              isFirst: true,
+                            ),
+
+                            // SENIOR HIGH SCHOOL
+
+                            EducationHistoryItem(
+                              year: '2023 - 2025',
+                              school:
+                                  'DMMMSU NLUC - Laboratory High School',
+                              course: 'STEM Strand',
+                              icon:
+                                  Icons.menu_book_outlined,
+                            ),
+
+                            // JUNIOR HIGH SCHOOL
+
+                            EducationHistoryItem(
+                              year: '2019 - 2023',
+                              school: 'Bacnotan NHS',
+                              course:
+                                  'Special Science Class',
+                              icon:
+                                  Icons.auto_stories_outlined,
+                            ),
+
+                            // ELEMENTARY
+
+                            EducationHistoryItem(
+                              year: '2013 - 2019',
+                              school:
+                                  'Bacnotan Elementary School',
+                              course:
+                                  'Elementary Education',
+                              icon:
+                                  Icons.child_care_outlined,
+                              isLast: true,
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // =========================================
+                      // EDIT PROFILE BUTTON
+                      // =========================================
+
+                      SizedBox(
+                        width: double.infinity,
+                        height: 30,
+
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+
+                          icon: const Icon(
+                            Icons.edit_outlined,
+                            size: 17,
+                          ),
+
+                          label: const Text(
+                            'EDIT PROFILE',
+
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5,
+                            ),
+                          ),
+
+                          style:
+                              ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color(0xFFD4AF37),
+
+                            foregroundColor:
+                                Colors.black,
+
+                            elevation: 0,
+
+                            shape:
+                                RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(9),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 18),
+
+                      // =========================================
+                      // FOOTER
+                      // =========================================
+
+                      Center(
+                        child: Text(
+                          'LORMA COLLEGES • COMPUTER SCIENCE',
+
+                          style: TextStyle(
+                            color:
+                                Colors.white.withOpacity(0.3),
+                            fontSize: 8,
+                            letterSpacing: 1.3,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -523,7 +565,8 @@ class ProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          CrossAxisAlignment.start,
 
       children: [
 
@@ -532,8 +575,12 @@ class ProfileInfo extends StatelessWidget {
           height: 30,
 
           decoration: BoxDecoration(
-            color: const Color(0xFFD4AF37).withOpacity(0.1),
-            borderRadius: BorderRadius.circular(7),
+            color:
+                const Color(0xFFD4AF37)
+                    .withOpacity(0.1),
+
+            borderRadius:
+                BorderRadius.circular(7),
           ),
 
           child: Icon(
@@ -547,7 +594,8 @@ class ProfileInfo extends StatelessWidget {
 
         Expanded(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment:
+                CrossAxisAlignment.start,
 
             children: [
 
@@ -582,6 +630,12 @@ class ProfileInfo extends StatelessWidget {
     );
   }
 }
+
+
+// ============================================================
+// EDUCATIONAL HISTORY ITEM
+// ============================================================
+
 class EducationHistoryItem extends StatelessWidget {
   final String year;
   final String school;
@@ -603,7 +657,9 @@ class EducationHistoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          CrossAxisAlignment.start,
+
       children: [
 
         // =====================================
@@ -636,6 +692,7 @@ class EducationHistoryItem extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 15,
+
                   color: isFirst
                       ? Colors.black
                       : const Color(0xFFD4AF37),
@@ -661,7 +718,8 @@ class EducationHistoryItem extends StatelessWidget {
 
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(
+            padding:
+                const EdgeInsets.only(
               bottom: 12,
             ),
 
@@ -673,6 +731,7 @@ class EducationHistoryItem extends StatelessWidget {
 
                 Text(
                   year,
+
                   style: const TextStyle(
                     color: Color(0xFFD4AF37),
                     fontSize: 7,
@@ -685,6 +744,7 @@ class EducationHistoryItem extends StatelessWidget {
 
                 Text(
                   school,
+
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 11,
@@ -697,6 +757,7 @@ class EducationHistoryItem extends StatelessWidget {
 
                 Text(
                   course,
+
                   style: const TextStyle(
                     color: Colors.white54,
                     fontSize: 8,
